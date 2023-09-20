@@ -10,8 +10,6 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-
-
 class _MyAppState extends State<MyApp> {
   String resultText = "";
   String number1 = "";
@@ -37,8 +35,6 @@ class _MyAppState extends State<MyApp> {
                 ],
               ),
             ),
-
-            
             Expanded(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -103,21 +99,24 @@ class _MyAppState extends State<MyApp> {
 
   void onOperatorClick(String buttText) {
     print("Click on Button $buttText");
-    if (number1.isEmpty) {
-      number1 = resultText;
-      operator = buttText;
-      setState(() {
-        resultText = "";
-      });
-    } else {
-      String number2 = resultText;
-      String res = calculate(number1, operator, number2);
-      number1 = res;
-      operator = buttText;
-      setState(() {
-        resultText = "";
-      });
+    if (operator.isEmpty) {
+      if (number1.isEmpty) {
+        number1 = resultText;
+        operator = buttText;
+        setState(() {
+          resultText = "";
+        });
+      } else {
+        String number2 = resultText;
+        String res = calculate(number1, operator, number2);
+        number1 = res;
+        operator = buttText;
+        setState(() {
+          resultText = "";
+        });
+      }
     }
+    operator = operator;
   }
 
   String calculate(String lhs, String operator, String rhs) {
