@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:standard/Button.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -18,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Calculator")),
+        appBar: AppBar(title: const Text("Calculator")),
         body: Column(
           children: [
             Expanded(
@@ -29,7 +31,7 @@ class _MyAppState extends State<MyApp> {
                   Container(
                     child: Text(
                       resultText,
-                      style: TextStyle(fontSize: 50),
+                      style: const TextStyle(fontSize: 50),
                     ),
                   ),
                 ],
